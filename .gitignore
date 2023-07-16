@@ -1,0 +1,8 @@
+.settings
+.vscode.
+reports
+target
+test-output
+.DS_Store
+.project
+.classpath
