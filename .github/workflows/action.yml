@@ -35,7 +35,21 @@ jobs:
     
     - name: Run Tests
       run: mvn test -Psmoketests -Drunenv=ci --no-transfer-progress
-      
+
+    - name: Replace CSS for Extent
+      uses: Nambers/ReplaceStringInFile@v1.3
+      with:
+        path: ${{ github.workspace }}/reports/extent/index.html
+        oldString: http://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/css/extent.css
+        newString: https://pritamsaha92.github.io/mycss/report.css
+
+    - name: Replace JS for Extent
+      uses: Nambers/ReplaceStringInFile@v1.3
+      with:
+        path: ${{ github.workspace }}/reports/extent/index.html
+        oldString: http://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/js/extent.js
+        newString: https://pritamsaha92.github.io/mycss/report.js
+
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
